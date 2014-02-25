@@ -3,7 +3,7 @@
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
 <script src="http://code.highcharts.com/highcharts.js"></script> 
 <script> 
-    var fb = new Firebase("https://<myfirebaseurl>.firebaseio.com/products"); 
+    var fb = new Firebase("https://popping-fire-6738.firebaseio.com/"); 
     fb.on("value", function(data) { 
         var model = data.val(); 
           $('#container').highcharts({ 
