@@ -1,37 +1,6 @@
-<div id="container" style="width:100%; height:400px;"></div> 
-<script src="https://cdn.firebase.com/v0/firebase.js"></script> 
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
-<script src="http://code.highcharts.com/highcharts.js"></script> 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script> 
-
-<script> 
-    var fb = new Firebase("https://popping-fire-6738.firebaseio.com/"); 
-    fb.on("value", function(data) { 
-        var model = data.val(); 
-          $('#container').highcharts({ 
-            chart: { type: 'line' }, 
-            title: { text: 'Temperature points' }, 
-            xAxis: { 
-                type: 'datetime',
-                dateTimeLabelFormats: {
-                    day: '%e of %b'
-                }
-            }, 
-            yAxis: { 
-                title: {
-                    text: 'Temperature (°C)'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }],
-                min: 0
-            }, 
-            series: [{
-                name: "temps",
-                data: _.values(_.mapValues(model.temperature, function(o) { return [new Date(o.time).getTime(), o.celsius]; }))
-            }]
-        });                
-    }); 
-</script>
+<div id="container" style="width:100%; height:400px;"></div>
+<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script src="js/charts.js"></script>
